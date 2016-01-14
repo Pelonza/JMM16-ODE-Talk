@@ -1,0 +1,258 @@
+\documentclass{beamer}
+\usetheme{Marburg}
+\usepackage{amsmath, amsthm, amsfonts, amssymb, epsfig, subfigure, boxedminipage}
+\usepackage{epstopdf}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{movie15}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\newcommand{\dif}{\textrm{d}}
+\def\normv{ {\bf e}_{\eta}}
+\def\ter{ \text{t}}
+\def\edge{ \text{e}}
+\def\ux{ {\bf e}_{x}}
+\def\uy{ {\bf e}_{y}}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\insertverticalnavigation}%
+{\ifx\beamer@nav@css\beamer@hidetext{\usebeamertemplate{section in sidebar}}\else{\usebeamertemplate{section in sidebar shaded}}\fi}
+{{\usebeamertemplate{section in sidebar}}}{}{}
+\makeatother
+
+%\makeatletter
+%\patchcmd{\insertverticalnavigation}%
+%{\ifx\beamer@nav@css\beamer@hidetext{\usebeamertemplate{subsection in sidebar}}\else{\usebeamertemplate{subsection in sidebar shaded}}\fi}
+%{{\usebeamertemplate{subsection in sidebar}}}{}{}
+%\makeatother
+
+\setbeamercovered{transparent}
+\title{Tips, Tools, and Resources \\for\\ Teaching an Active-Learning (motivated)\\Differential Equations Course}
+\author{Dr. Karl Schmitt, Valparaiso University}
+\begin{document}
+
+\section{Introduction}
+\frame{
+\begin{center}
+\titlepage
+Joint Mathematics Meeting 2016\\
+
+%Febuary $1^{st}$, 2013
+\end{center}
+}
+
+\frame{
+\frametitle{No Need to Copy}
+Download slides at:\\
+\url{https://github.com/Pelonza/JMM16-ODE-Talk}
+}
+
+\frame{
+\frametitle{Background}
+\vspace{-.25cm}
+Course\\
+\begin{itemize}
+	\item Mixture of Engineering (Mech, ECE), Mathematics, and Meteorology students
+	\item Typical class size 15-30
+	\item Students have limited programming experience by this course
+\end{itemize}
+Teaching Goals
+\begin{itemize}
+	\item Be able to use class-time as exploratory/active learning
+	\item Integrate significant computational explorations (6-10 for the semester)
+	\item Provide sufficient in-depth applications to motivate learning DEs
+\end{itemize}
+}
+
+%Outline
+%Textbooks -- Woodruff's IBL, Jiri Lebl + IODE,  
+
+\section{Resources}
+\frame{
+\frametitle{Textbook Choices}
+\begin{itemize}
+	\item \textit{Differential Equations Laboratory Workbook},\\
+	Borrelli, Coleman, and Boyce\\
+	Available on CODEE:\\ \tiny{\url{www.codee.org/library/projects/differential-equations-laboratory-workbook-1}}\normalsize
+	\begin{itemize}
+		\item Lots(!!) of experiments
+		\item Originally from 1992, so specific software references very out-of-date
+		\item If planned well and/or updated can serve well as labs or homework activities.
+	\end{itemize}
+	\item \textit{Notes on Diffy Qs} by Ji\v{r}\'{\i} Lebel, 2013/2014\\
+	Available at \url{http://www.jirka.org/diffyqs/}
+	\begin{itemize}
+		\item Designed to work hand-in-hand with the IODE Software (more later)
+		\item Also available VERY cheap in bound versions ($<$\$20)
+	\end{itemize}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Textbooks (cont)}
+\begin{itemize}
+	\item \textit{Differential Equations with Linear Algebra, An inquiry based approach to learning}, by Ben Woodruff\\
+	Available from github: \tiny{\url{https://github.com/bmwoodruff/math316-IBL}}\normalsize
+	\begin{itemize}
+		\item Includes a nice review section and linear algebra section (for combined courses)
+		\item Takes a constructivist/IBL approach to teaching with most key ideas `discovered' by the students
+		\item Includes many links directly to Sage web-applets (or WolframAlpha) for answer checking
+	\end{itemize}
+	\item Unpublished IBL Project from Chris Rasmussen (contact him for materials)
+\end{itemize}
+}
+
+\frame{
+\frametitle{Project \& Assignment Sources}
+\begin{itemize}
+	\item First, the two textbooks (non-IBL) include several project/worksheets
+	\item IODE, again at \url{www.math.uiuc.edu/iode/}
+	\begin{itemize}
+		\item Fairly stand-alone projects/labs - 6 total
+		\item Inclues Fourier Series and PDEs
+		\item Some small compatibility issues/updates
+		\item Key/Solutions not posted, but I received some from an Admin/have available
+	\end{itemize}
+	\item The Connected Curriculum Project at \url{https://www.math.duke.edu/education/ccp}
+	\begin{itemize}
+		\item 14 Labs/projects (for DEs), in Maple, Mathematic, and MATLAB formats
+		\item All are for OLD software versions, so try them first to revise some commands
+		\item This site actually has a LOT of awesome (other) stuff
+	\end{itemize}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Project \& Assignment Sources 2}
+\begin{itemize}
+	\item CODEE at \url{www.codee.org}
+	\begin{itemize}
+		\item Most important:\\ The 2013 JMM Mini-Course workbook. \\
+		\tiny{\url{http://www.codee.org/jmm-2013-minicourse/jmm-2013-project-book/view}}\normalsize
+		\begin{itemize}
+			\item This has a large breadth of projects of varying complexities and walk-through levels
+			\item Biggest Downside: No clear list of pre-requisite knowledge (or sometimes learning goals) for projects
+		\end{itemize}
+		\item Very nice `Mathematical Modeling' process/diagram and activity
+		\item Lots of other projects and resources if you dig around
+	\end{itemize}
+	\item MIT Open Courseware
+	\begin{itemize}
+		\item Includes some web-based applets (Javascript anyone?)
+		\item Some problem-sets and solutions also available
+	\end{itemize}
+\end{itemize}
+}
+
+\section{Tools}
+
+\frame{
+\frametitle{(Free) Software}
+\begin{itemize}
+	\item Sage (Cloud) at \url{http://sagemath.org} 
+	\begin{itemize}
+		\item Available in the cloud or downloadable, free alternative to Mathematica, Maple (mostly), and MATLAB (also Octave)
+	\end{itemize}
+	\item WolframAlpha at \url{http://wolframalpha.com}
+	\begin{itemize}
+		\item Your students will use it. You should understand it.
+		\item Advantage/Disadvantage: mostly a one-line entry option
+		\item Don't forget additional applets or explorations that Wolfram has available
+	\end{itemize}
+	\item IODE at \url{www.math.uiuc.edu/iode/} 
+	\begin{itemize}
+		\item Package for MATLAB/Octave
+		\item Includes several useful GUI exploration pieces
+	\end{itemize}
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Assessment}
+\begin{itemize}
+	\item \textbf{S}tudent \textbf{A}ssessment of their \textbf{L}earning \textbf{G}ains (SALG)\\
+	Found at \url{www.salgsite.org}
+	\begin{itemize}
+		\item Learner focused, with heavily validated assessment questions
+		\item Recommended: SALG-M (Sage or Non-Sage) by Hassi \& Laursen\\
+		A SALG instrument developed  and validated explicitly for IBL Mathematics courses
+	\end{itemize}
+	\item Paper: \textit{Students' Retention of Mathematical Knowledge and Skills in Differential Equations}, by Oh Nam Kwon, Karen Allen, and Chris Rasmussen, \textbf{School Science and Mathematics}, May 2005
+	\begin{itemize}
+		\item Contains a short list of assessment items related to developing a Concept Inventory for DEs
+	\end{itemize}
+	\item (Your idea here) -- No (to my knowledge) definitive concept inventory.
+\end{itemize}
+}
+
+\section{Tips}
+
+\frame{
+\frametitle{General Tips}
+
+\begin{itemize}
+	\item Don't (dramatically) change approaches after the semester starts
+	\begin{itemize}
+		\item Students really appreciate predictability
+	\end{itemize}
+	\item If using IBL, go extra slow at the beginning
+	\begin{itemize}
+		\item without that foundation, the rest will fall apart
+		\item Get support from the the Academy of Inquiry-Based Learning\\
+		\url{www.inquirybasedlearning.org}
+	\end{itemize}
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Reflections on Tools and Resources}
+\begin{itemize}
+	\item The IODE labs are well-written and reasonably easy to incorporate
+	\begin{itemize}
+		\item Students really enjoyed these, and were generally successful
+		\item Some programming may need taught
+	\end{itemize}
+	\item The CODEE/JMM2013 Projects are great, but are not really ``plug and play''
+	\begin{itemize}
+		\item Projects need a clearer identification of what tools/skills they need to have mastered before the project or to complete the project
+		\item Solutions are not always available, so may need solved by you first
+		\item Some of these are very challenging and indepth!
+	\end{itemize}
+\end{itemize}
+}
+
+\section{Thanks}
+
+\frame{
+\Large{Big Thanks}\ \normalsize to Ben Woodruff for the textbook\\
+\vskip0.1in
+also\\
+Chris Rasmussen for his draft text and assessment questions, \\
+\vskip0.1in
+and\\
+Tom LoFaro, Michael Huber, and Ami Radunskaya for writing and sharing their modeling projects and many solutions via email.\\
+
+}
+
+\frame{
+\Huge
+Thank you for listening\\
+\normalsize
+Download slides at:\\
+\url{https://github.com/Pelonza/JMM16-ODE-Talk}
+
+}
+		
+
+
+
+
+\end{document}
+
+
+%DNA picture from : http://www.pbs.org/wgbh/nova/sciencenow/3214/01-coll-04.html
+%Molecule picture from: http://www.xray.cz/xray/csca/kol2009/abst/moncol.htm
+% TSP: by Mac Evans, GTI, ResearchHorizons
